@@ -136,6 +136,8 @@ All options can be set via CLI flags or environment variables. Flags take preced
 | `--meter-divisor` | `METER_DIVISOR` | `1000` | Divisor to convert raw reading to m³ (e.g. `000354225` / `1000` = `354.225`) |
 | `--ocr-incr-only` | `OCR_INCR_ONLY` | `false` | Only publish readings that are ≥ the previous value (after dividing by `meter-divisor`), discarding likely OCR errors |
 | `--ocr-max-incr` | `OCR_MAX_INCR` | `0` | Maximum allowed increase between consecutive readings (after `meter-divisor`); larger jumps are discarded as OCR errors (`0` = disabled) |
+| `--ocr-reset-after` | `OCR_RESET_AFTER` | `3` | With `--ocr-incr-only`, reset the floor after this many consecutive, mutually-consistent lower readings (treating the stored floor as an OCR misread); `0` = disabled |
+| `--ocr-reset-tolerance` | `OCR_RESET_TOLERANCE` | `0.1` | Maximum spread (after `meter-divisor`) among the lower readings for them to count as consistent when resetting the incr-only floor |
 
 ### MQTT / Home Assistant
 

@@ -33,6 +33,8 @@ var (
 	meterDivisor           float64
 	ocrIncrOnly            bool
 	ocrMaxIncr             float64
+	ocrResetAfter          int
+	ocrResetTol            float64
 	ocrMergeTexts          bool
 )
 
@@ -150,6 +152,18 @@ func main() {
 				Usage:   "Maximum allowed increase between consecutive readings (after dividing by meter-divisor); larger jumps are discarded as OCR errors (0 = disabled)",
 				Sources: cli.EnvVars("OCR_MAX_INCR"),
 			},
+			&cli.IntFlag{
+				Name:    "ocr-reset-after",
+				Value:   3,
+				Usage:   "With ocr-incr-only, reset the floor after this many consecutive, mutually-consistent lower readings (treating the stored floor as an OCR misread); 0 = disabled",
+				Sources: cli.EnvVars("OCR_RESET_AFTER"),
+			},
+			&cli.FloatFlag{
+				Name:    "ocr-reset-tolerance",
+				Value:   0.1,
+				Usage:   "Maximum spread (after dividing by meter-divisor) among the lower readings for them to count as consistent when resetting the incr-only floor",
+				Sources: cli.EnvVars("OCR_RESET_TOLERANCE"),
+			},
 		},
 		Action: run,
 	}
@@ -179,6 +193,8 @@ func run(_ context.Context, cmd *cli.Command) error {
 	meterDivisor = cmd.Float("meter-divisor")
 	ocrIncrOnly = cmd.Bool("ocr-incr-only")
 	ocrMaxIncr = cmd.Float("ocr-max-incr")
+	ocrResetAfter = cmd.Int("ocr-reset-after")
+	ocrResetTol = cmd.Float("ocr-reset-tolerance")
 	ocrMergeTexts = cmd.Bool("ocr-merge-texts")
 
 	if storagePath != "" && (ocrIncrOnly || ocrMaxIncr > 0) {
