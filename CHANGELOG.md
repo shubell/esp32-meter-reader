@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/dcelasun/esp32-meter-reader/compare/v0.8.0...v0.9.0) (2026-07-29)
+
+
+### Features
+
+* OCR misread tolerance ([ced202d](https://github.com/dcelasun/esp32-meter-reader/commit/ced202df0795ce8a71308834e164d967b201a10f))
+
 ## [0.8.0](https://github.com/dcelasun/esp32-meter-reader/compare/v0.7.0...v0.8.0) (2026-05-18)
 
 
