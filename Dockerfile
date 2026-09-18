@@ -38,12 +38,17 @@ RUN python3 -m venv /app/venv \
 
 # Pre-download models by doing a dummy inference
 COPY ocr.py /app/ocr.py
-RUN apt-get update && apt-get install -y --no-install-recommends wget \
-    && wget -q -O /tmp/test.png https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_ocr_002.png \
-    && /app/venv/bin/python3 /app/ocr.py /tmp/test.png > /dev/null 2>&1 \
-    && rm /tmp/test.png \
-    && apt-get purge -y wget && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/*
+# Only run the smoke test on native amd64 builds.
+# PaddleOCR segfaults under QEMU emulation on ARM64.
+ARG TARGETARCH
+RUN if [ "$TARGETARCH" = "amd64" ]; then \
+      apt-get update && apt-get install -y --no-install-recommends wget \
+      && wget -q -O /tmp/test.png https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_ocr_002.png \
+      && /app/venv/bin/python3 /app/ocr.py /tmp/test.png > /dev/null 2>&1 \
+      && rm /tmp/test.png \
+      && apt-get purge -y wget && apt-get autoremove -y \
+      && rm -rf /var/lib/apt/lists/*; \
+    fi
 
 # Copy Go binary
 COPY --from=go-builder /app/esp32-meter-reader /app/esp32-meter-reader
