@@ -94,34 +94,7 @@ volumes:
   meter-data:
 ```
 
-Change the following values to match your environment:
-
-| Variable        | Description                                             |
-| --------------- | ------------------------------------------------------- |
-| `MQTT_BROKER`   | MQTT broker URL, for example `tcp://192.168.1.100:1883` |
-| `MQTT_USER`     | MQTT username                                           |
-| `MQTT_PASSWORD` | MQTT password                                           |
-| `METER_DIVISOR` | Divisor used to convert the raw meter reading to m³     |
-
-The service will be available on port **8080** of the Docker host:
-
-```text
-http://<docker-host-ip>:8080
-```
-
-For example:
-
-```text
-http://192.168.1.50:8080
-```
-
-The Docker volume `meter-data` is used to persist captured images and `readings.csv` across container restarts and updates.
-
-If the MQTT broker is running in another Docker container on the same Docker network, you can use its Docker service/container name instead of an IP address. For example:
-
-```yaml
-MQTT_BROKER: tcp://mosquitto:1883
-```
+The service will be available on `http://<docker-host-ip>:8080`.
 
 ### Kubernetes
 
