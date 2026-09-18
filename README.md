@@ -64,7 +64,7 @@ docker run -d -p 8080:8080 \
 ```
 ### Portainer
 
-In Portainer, go to **Stacks → Add stack**, give the stack a name (for example `esp32-meter-reader`), and paste the following:
+In Portainer, go to **Stacks → Add stack**, give the stack a name (for example `esp32-meter-reader`). Copy the following, set the [environment variables](#configuration-1) for your environment, and paste into Portainer:
 
 ```yaml
 services:
