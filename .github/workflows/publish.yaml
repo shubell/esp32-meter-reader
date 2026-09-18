@@ -93,7 +93,7 @@ jobs:
           context: .
           push: true
           # ── NEW: build for both amd64 and arm64 ──
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta-release.outputs.tags || steps.meta-unstable.outputs.tags }}
           labels: ${{ steps.meta-release.outputs.labels || steps.meta-unstable.outputs.labels }}
           cache-from: type=gha
