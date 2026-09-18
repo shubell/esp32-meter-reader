@@ -64,8 +64,6 @@ docker run -d -p 8080:8080 \
 ```
 ### Portainer
 
-If you use [Portainer](https://www.portainer.io/), the OCR service can be deployed as a **Stack** using Docker Compose.
-
 In Portainer, go to **Stacks → Add stack**, give the stack a name (for example `esp32-meter-reader`), and paste the following:
 
 ```yaml
