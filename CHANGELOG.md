@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.11.0](https://github.com/shubell/esp32-meter-reader/compare/v0.10.0...v0.11.0) (2026-09-21)
+
+
+### Features
+
+* Add masking support for improved OCR ([47546ff](https://github.com/shubell/esp32-meter-reader/commit/47546ffc612f5207ab1cda652d4220aed99499ec))
+* Add OCR_MAX_INCR flag ([3d7c0e4](https://github.com/shubell/esp32-meter-reader/commit/3d7c0e40e7542acd5aec5a8de09616bffdf140b4))
+* Add ocr-incr-only flag ([8a77d98](https://github.com/shubell/esp32-meter-reader/commit/8a77d98c6fb4df0f8d5433412cf3beea5ae03112))
+* AI-Thinker ESP32-CAM support ([fb699c9](https://github.com/shubell/esp32-meter-reader/commit/fb699c913abc582a8769e9b15e4c0c0ff30ca892)), closes [#16](https://github.com/shubell/esp32-meter-reader/issues/16)
+* **CI:** Add release-please ([9e4d76a](https://github.com/shubell/esp32-meter-reader/commit/9e4d76a4bc3b4f4d10d08159e57057fe8d293208))
+* **esp32:** Improved power efficiency ([9b8ef80](https://github.com/shubell/esp32-meter-reader/commit/9b8ef806335f43c99a67f3c769ec84c70eebfdc2))
+* OCR match customization ([4848e8f](https://github.com/shubell/esp32-meter-reader/commit/4848e8f1bbb4db01b4cf3a32541231ce44dc3b64))
+* OCR misread tolerance ([ced202d](https://github.com/shubell/esp32-meter-reader/commit/ced202df0795ce8a71308834e164d967b201a10f))
+* Read last value on start up, ignore decreases ([8d335a9](https://github.com/shubell/esp32-meter-reader/commit/8d335a927aa0a472b8f668ce13a065fb0f2fc89c))
+* Support merging OCR'ed texts ([d9e9bf5](https://github.com/shubell/esp32-meter-reader/commit/d9e9bf53472b74b8dcbd380bd714d24942713af2))
+* Support multiple replacements in ocr-fix-regex flag ([5356867](https://github.com/shubell/esp32-meter-reader/commit/5356867be1c7825d3216d454873d43186ab38c31))
+
+
+### Bug Fixes
+
+* **esp32:** Better flash duration ([6266bbc](https://github.com/shubell/esp32-meter-reader/commit/6266bbc8a25a418f143724a44b8f9066ef0a435e))
+* **esp32:** Fix wake ups on error ([836012b](https://github.com/shubell/esp32-meter-reader/commit/836012b2f3daff32e4a8d3de8d6047023f7bbdc0))
+* **k8s:** Fix Service app label ([e32869f](https://github.com/shubell/esp32-meter-reader/commit/e32869f1b712213d4352ae12cda262f62c0af72f))
+* Pin all Paddle dependency versions ([a5d2242](https://github.com/shubell/esp32-meter-reader/commit/a5d224234b0823d01757492b82e63784355d9a14))
+* Remove longest digit fallback for OCR ([bf9c9fc](https://github.com/shubell/esp32-meter-reader/commit/bf9c9fc181c26f2d74e54609cf5fd46c3b7893e1))
+* Restore OCR endpoint log ([cf58250](https://github.com/shubell/esp32-meter-reader/commit/cf582509605e0ee5b80884d848fd3b2130ec9362))
+* Restore OCR endpoint log ([bb88357](https://github.com/shubell/esp32-meter-reader/commit/bb88357f668b7ff76af7329196ffc5945aafb670))
+
 ## [0.10.0](https://github.com/dcelasun/esp32-meter-reader/compare/v0.9.1...v0.10.0) (2026-09-18)
 
 
